@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="http://localhost/titulacion/css/bootstrap.min.css"> -->
+    <!-- <link rel="stylesheet" href="http://localhost/titulacion/script.js"> -->
+    <!-- <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> -->
+</head>
+<body>
+	<form id="enviar-correo">
+        <div class="mb-3 row">
+          <div class="col-12 col-md-6">
+            <label class="form-label" for="destinatario">Destinatario</label>
+            <input type="email" class="form-control" name="destinatario" id="destinatario" placeholder="suscríbete@joystick.com.mx">
+          </div>
+          <div class="col-12 col-md-6">
+            <label class="form-label" for="asunto">Asunto del correo</label>
+            <input type="text" class="form-control" name="asunto" id="asunto" placeholder="El asunto del correo electrónico">
+          </div>
+        </div>
+        <div class="mb-3 row">
+          <div class="col-12 col-md-12">
+            <label class="form-label" for="contenido">Mensaje</label>
+            <input type="text" class="form-control" name="contenido" id="contenido" placeholder="Escribe aquí...">
+          </div>
+        </div>
+        <button type="button" class="btn btn-primary" onclick="EnviarCorreo()">Enviar correo</button>
+        <button type="button" class="btn btn-danger">Calcelar</button>
+      </form>
+</body>
+</html>
+

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>Document</title>
+    <!--<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="http://localhost/titulacion/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://localhost/titulacion/css/gijgo.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+     <link rel="stylesheet" href="http://localhost/titulacion/script.js"> -->
+    <!-- <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> -->
+
+</head>
+<body>
+	<div class="row">
+		<div class="col">
+			GESTIÓN DE CANTONES
+		</div>
+	</div>
+    <div class="container">
+        <form class="needs-validation" id="form-addCantones">
+            <!-- Filas para colocar cedula, nombres y apellidos -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-floating mb-1">
+                        <input type="text" class="form-control" name="nombre" id="can-nombre" placeholder="Nombre del cantón ..." required>
+                        <label for="titulolargo">Nombre del cantón:</label>
+                    </div>
+                    <div class="valid-feedback">
+                        Correcto
+                    </div>
+                    <div class="invalid-feedback">
+                        Debe colocar el nombre del cantón
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-floating">
+                        <select class="form-select" name="provincia" id="can-provincia" aria-label="Floating label select example">
+                          
+                        </select>
+                        <label for="floatingSelect">Provincia:</label>
+                    </div>
+                    
+                </div> 
+            </div>
+            
+
+
+
+            <div class="row">
+                <div class="col-md-4"></div> 
+                <div class="col-md-4"></div>            
+                <div class="col-md-4">
+                    <button type="button" Class="btn btn-primary" name= "0" id="can-edi" onclick="registraCanton()">Aceptar</button>
+                    <button type="button" class="btn btn-danger">Calcelar</button>
+                </div>
+            </div>
+                
+               
+    </div>
+</body>
+</html>
+

@@ -1,0 +1,36 @@
+<html>
+    <title></title>
+    <head>
+        
+    </head>
+    <body>
+      <div id="LoginForm">
+        <form name="form1" method="post" action="/titulacion/portero.php">
+        <table width="89%" height="0%" border="0" bordercolor="#000000">
+        <tr>
+        <td width="36%" height="32%"> <div align="right"><font size="1" face="Verdana">Cuenta:</font></div></td>
+        <td width="64%"> <input name="cuenta" type="text" id="cuenta"></td>
+        </tr>
+        <tr> 
+        <td height="32%"> <div align="right"><font size="1" face="Verdana">Contrase&ntilde;a:</font></div></td>
+        <td><input name="contrasena" type="password" id="contrasena"></td>
+        </tr>
+        <tr>
+        <td height="36%">&nbsp;</td>
+        <td> <input type="Button" name="Submit" value="Enviar" onClick="Mandar()">
+        <input type="reset" name="Submit2" value="Cancelar"></td>
+        </tr>
+        </table>
+        </form>
+      </div>
+      <script type="text/JavaScript">
+        function BorrarContainer() {
+          //document.getElementById("Contenedor1").InnerHTML=""
+        }
+          function Mandar(){
+            document.form1.submit()
+            //document.form1.reset()
+          }
+      </script>
+    </body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE HTML>
+<!-- Comentario -->
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>SGI-CEDIT </title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/misestilos.css">
+	<link rel="stylesheet" href="css/datatables.min.css">
+	<!-- <link rel="stylesheet" href="css/datepicker.min.css"> -->
+
+ 
+
+	<!-- <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">  -->
+</head>
+<body>
+<!-- Código para personalizar la barra de menú principal -->
+<div id="BarraPrincipal" marca="0">
+	<nav name="barra" id="barra" class="navbar navbar-expand-lg navbar-dark bg-success">
+		<div class="container-fluid d-flex justify-content-between">
+		  <div class="my-class-left">
+			<a class="navbar-brand" href="index.html">Home</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+			  <span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+			  
+			</div>
+		  </div>
+		  <div class="my-class-right">
+		  <div class="navbar-nav">
+				<a name="Entrar" class="click-texto nav-link active" id="accion"  href="">Entrar</a>
+			</div>
+		  </div>
+		</div>
+	  </nav>	
+</div>
+
+<div  class="container">
+	<div class="row">
+		<div class="col-sm-3">
+			<!-- <img src='imagenes/i1.png' alt = 'Salir'> -->
+		</div>
+		<div class="col-sm-6">
+			<center><h3>SISTEMA INFORMATIZADO PARA LA GESTIÓN DE LA VINCULACIÓN CON LA SOCIEDAD</h3></center>
+		</div>
+		<div class="col-sm-3">
+			<!-- <img src='imagenes/i2.jpg' alt = 'Salir'> -->
+		</div>
+	</div>
+</div>
+<!-- Contenedor principal -->
+<div class="container">
+	<div class="row">
+		<div id="areaprincipal" class="col-sm-9 capa-principal">
+			<div>
+				<img src='imagenes/unesum.jpg' alt = 'Salir'>
+			</div>	
+		</div>
+		<div id="login" class="col-sm-3 d-flex justify-content-center align-items-center bg-primary">
+			<div class="card mx-4" id="capa-login" name="Cacafuaca" >
+				<div class="card-body">
+					<h7 id="mensaje"></h7>
+					<form id="form-login">
+						<input class = "form-control my-2" type="text" id="usuario" placeholder="nombre de usuario">
+						<input class = "form-control my-2" type="password" id="clave" placeholder="clave de acceso">
+						<button type="submit" class="btn btn-success btn-block">
+							Enviar
+						</button><br>
+						<a href="#" onclick="crearCuenta()">Crear cuenta</a><br>
+						<a href="#">Olvidé mi contraseña</a><br>
+					</form>
+				</div>
+			</div>
+			<div class="col position-relative ">
+				<div id="capa-datos" class="card top-0 start-0 align-items-center">
+				  <div class="card-body">
+					<h5 id="card-nombre">Card 2</h5>
+					
+				  </div>
+				</div>
+			  </div>
+		</div>
+	</div>
+</div>
+<div id="visualizador" class="container">
+	
+</div>
+<script src="scripts/jquery.min.js"></script>
+<script src="scripts/miScript.js"></script>
+<script src="scripts/facultades.js"></script>
+<script src="scripts/usuarios.js"></script>
+<script src="scripts/universidades.js"></script>
+<script src="scripts/carreras.js"></script>
+<script src="scripts/periodos.js"></script>
+<script src="scripts/provincias.js"></script>
+<script src="scripts/provincias.js"></script>
+<script src="scripts/cantones.js"></script>
+<script src="scripts/parroquias.js"></script>
+<script src="scripts/comunidades.js"></script>
+<script src="scripts/bootstrap.bundle.min.js"></script>
+<script src="scripts/datatables.min.js"></script>
+<script src="scripts/datepicker.min.js"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>  -->
+
+
+</body>
+<script src="scripts/datepicker.min.js">
+	$(function() {
+	$('#datepicker').datepicker({
+		format: 'dd/mm/yyyy',
+		languaje: 'es',
+	}
+	);
+    console.log("Hola mi gente ...")
+	});
+</script>
+
+</html>

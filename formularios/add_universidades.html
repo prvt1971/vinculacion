@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="http://localhost/titulacion/css/bootstrap.min.css"> -->
+    <!-- <link rel="stylesheet" href="http://localhost/titulacion/script.js"> -->
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+</head>
+<body>
+	<div class="row">
+		<div class="col">
+			GESTION DE UNIVERSIDADES
+		</div>
+	</div>
+    <form class="needs-validation" id="form-addUni">
+        <div class="row"> 
+            <div class="col-md-6">
+                    <div class="form-floating mb-1">
+                        <input type="text" class="form-control" name="nombre" id="uni-nombre" placeholder="Universidad ..." required>
+                        <label for="Nombre">Nombre:</label>
+                    </div>
+					<div class="valid-feedback">
+						Correcto
+					</div>
+					<div class="invalid-feedback">
+						Debe introducir un nombre
+					</div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-floating mb-1">
+                    <input type="text" class="form-control" name="email" id="uni-email" placeholder="cuenta@...">
+                    <label for="email">Correo:</label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                    <div class="form-floating mb-1">
+                        <input type="text" class="form-control" name = "url" id="uni-url" placeholder="http:// ..." required>
+                        <label for="URL">URL:</label>
+                    </div>
+					<div class="valid-feedback">
+						Correcto
+					</div>
+					<div class="invalid-feedback">
+						Debe introducir un nombre
+					</div>			
+            </div> 
+            <div class="col-md-6">
+                <div class="input-group form-floating">
+                    <input type="file" accept=".jpg,.jpeg,.png,.gif" name="logofile" id="uni-logofile" class="form-control"  aria-describedby="inputGroupFileAddon04" aria-label="Upload" onchange="actualizaImagen()">
+                    <label for="logofile">Logotipo:</label>
+                    <button class="btn btn-primary" type="button" id="inputGroupFileAddon04" onclick="">Aplicar</button>
+                </div>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-floating">
+                    <select class="form-select" name="rector" id="uni-rector" aria-label="Floating label select example">
+                      
+                    </select>
+                    <label for="floatingSelect">Rector:</label>
+                </div>
+				
+            </div> 
+            <div class="col-md-6 mb-3 aling-item-right">
+                <div class="row">
+                    <div class="col-md-6">
+
+                    </div>
+                    <div class="col-md-6">
+						<div style="width:100px">
+							<img  width='120' height='120' name="logotipo" id="logotipo" src='imagenes/i1.png' alt = 'Salir'>
+						</div>
+                    </div>
+                </div>
+            </div>    
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                
+            </div> 
+            <div class="col-md-6">
+                <button type="button" Class="btn btn-primary" name= "0" id="uni-edi" onclick="registraUniversidad()">Aceptar</button>
+                <button type="button" class="btn btn-danger" onclick="showPath()">Calcelar</button>
+            </div>    
+        </div>
+    </form>
+    <!-- <script src="../jquery.min.js"></script>
+    <script src="../Troca1.js"></script> -->
+</body>
+</html>
+

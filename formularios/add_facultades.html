@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="http://localhost/titulacion/css/bootstrap.min.css"> -->
+    <!-- <link rel="stylesheet" href="http://localhost/titulacion/script.js"> -->
+    <!-- <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> -->
+</head>
+<body>
+	<div class="row">
+		<div class="col">
+			GESTIÓN DE FACULTADES
+		</div>
+	</div>
+    <div class="container">
+        <form class="needs-validation" id="form-addFac">
+            <!-- Filas para colocar NOMBRE Y DECANO -->
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-floating mb-1">
+                        <input type="text" class="form-control" name="facnombre" id="fac-nombre" placeholder="Nombres ..." required>
+                        <label for="fac-nombre">Nombre de la facultad:</label>
+                    </div>
+                    <div class="valid-feedback">
+                        Correcto
+                    </div>
+                    <div class="invalid-feedback">
+                        Debe introducir el nombre de la facultad
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-floating">
+                        <select class="form-select" name="decano" id="fac-decano" aria-label="Floating label select example">
+                            
+                        </select>
+                        <label for="floatingSelect">Decano:</label>
+                    </div>
+                </div>
+            </div>
+             <!-- Fila para seleccionar y mostrar el logotipo -->
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="input-group form-floating">
+                        <input type="file" accept=".jpg,.jpeg,.png,.gif" name="logofacultad" id="fac-logofile" class="form-control" aria-describedby="inputGroupFileAddon04" aria-label="Upload" onchange="actualizalogoFac()">
+                        <label for="logofacultad">Logotipo:</label>
+                        <button class="btn btn-primary" type="button" id="inputGroupFileAddon04" onclick="">Aplicar</button>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div style="width:100px">
+                        <img  width='60' height='60' name="fac-logo" id="fac-logotipo" src='imagenes/i1.png' alt = 'Salir'>
+                    </div>
+                </div>
+                 
+            </div>
+            <!-- Fila para colocar las contraseñas y la foto -->
+            <div class="row">
+                    <div class="col-md-12">
+                        <button type="button" Class="btn btn-primary" name= "0" id="fac-edi" onclick="registraFacultad()">Aceptar</button>
+                        <button type="button" class="btn btn-danger">Calcelar</button>
+                    </div>
+            </div>
+        </form>
+    </div>
+    <!-- <script src="../jquery.min.js"></script>
+    <script src="../Troca1.js"></script> -->
+</body>
+</html>
+

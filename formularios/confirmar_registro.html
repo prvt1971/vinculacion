@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+   
+    <title>Document</title>
+
+    <!-- <link rel="stylesheet" href="http://localhost/titulacion/css/bootstrap.min.css"> -->
+    
+
+</head>
+<body>
+    <div class="container">
+        <form class="needs-validation" id="form-confirmar">
+            <!-- Filas para colocar cedula, nombres y apellidos -->
+            <div class="row align-items-center justify-content-center">
+                <div class="col-md-12 text-center">
+                    <h4>
+                        Se ha enviado un código de verificación al buzón de la cuenta de correo que registraste.<br>
+                        Por favor, ingresa dicho código y envíalo, para poder activar tu cuenta.
+                    </h4>
+                </div>
+                 
+                
+            </div>
+            <div class="row align-items-center justify-content-center">
+
+                    <div class="col-md-12">
+                        <div class="form-floating mb-1">
+                            <input type="text" class="form-control" name="codigo-o" id="codigo-oculto" placeholder="Nombre de la provincia ..." required>
+                        </div>
+                        <div class="form-floating mb-1">
+                            <input type="text" maxlength="15" class="form-control" name="codigo" id="codigo-verificacion" placeholder="Nombre de la provincia ..." required>
+                            <label for="titulolargo">Codigo:</label>
+                        </div>
+                    <!-- <div class="valid-feedback">
+                        Correcto
+                    </div>
+                    <div class="invalid-feedback">
+                        Debe colocar el nombre de la provincia
+                    </div> -->
+            </div>
+            <div class="row align-items-center justify-content-center">
+                <div class="col-md-12"></div> 
+                 <div class="col-auto">
+                    <button type="button" Class="btn btn-primary" name= "0" id="enviar-codigo" onclick="verificarRegistro()">Enviar el código</button>
+                    <button type="button" Class="btn btn-primary" name= "0" id="solicitar-codigo" onclick="solicitarCodigo()">Solicitar otro código</button>
+                </div>
+            </div>
+    </div>
+</body>
+</html>
+

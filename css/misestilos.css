@@ -1,0 +1,10 @@
+.capa-principal {
+    background-color: #50e72aa6; /* Reemplaza #ff0000 con el código de color que desees */
+  }
+  .barra-color{
+    background-color: #FF0018; /* Reemplaza #ff0000 con el código de color que desees */
+  }
+  .fixed-size {
+    width: 100px;
+    height: 100px;
+  }

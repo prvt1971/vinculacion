@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>Document</title>
+    <!--<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="http://localhost/titulacion/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://localhost/titulacion/css/gijgo.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+     <link rel="stylesheet" href="http://localhost/titulacion/script.js"> -->
+    <!-- <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> -->
+
+</head>
+<body>
+	<div class="row">
+		<div class="col">
+			GESTIÓN DE PERÍODOS ACADÉMICOS
+		</div>
+	</div>
+    <div class="container">
+        <form class="needs-validation" id="form-addPeriodos">
+            <!-- Filas para colocar cedula, nombres y apellidos -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-floating mb-1">
+                        <input type="text" class="form-control" name="titulolargo" id="per-titulolargo" placeholder="Titulo largo ..." required>
+                        <label for="titulolargo">Título largo:</label>
+                    </div>
+                    <div class="valid-feedback">
+                        Correcto
+                    </div>
+                    <div class="invalid-feedback">
+                        Debe el nombre largo del periodo
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-floating mb-1">
+                        <input type="text" class="form-control" name="titulocorto" id="per-titulocorto" placeholder="Título corto ..." required>
+                        <label for="titulocorto">Título corto:</label>
+                    </div>
+                    <div class="valid-feedback">
+                        Correcto
+                    </div>
+                    <div class="invalid-feedback">
+                        Debe introducir un título corto para el período
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-floating mb-1">
+                            <input type="text" class="form-control" name="inicia" id="per-fechainicio" placeholder="fecha de inicio ..." required>
+                            <label for="inicia">Fecha de inicio:</label>
+                        <span class="input-group-append">
+                            <i class="fa fa-calendar"></i>
+                        </span>   
+                    </div>
+                    <div class="valid-feedback">
+                        Correcto
+                    </div>
+                    <div class="invalid-feedback">
+                        Debe introducir la fecha de inicio del período
+                    </div>  
+                </div>
+                <div class="col-md-4">
+                    <div class="form-floating mb-1">
+                            <input type="text" class="form-control" name="termina" id="per-fechatermina" placeholder="fecha de inicio ..." required>
+                            <label for="termina">Fecha de fin:</label>
+                        <span class="input-group-append">
+                            <i class="fa fa-calendar"></i>
+                        </span>   
+                    </div>
+                    <div class="valid-feedback">
+                        Correcto
+                    </div>
+                    <div class="invalid-feedback">
+                        Debe introducir la fecha de terminación del período
+                    </div>  
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4"></div> 
+                <div class="col-md-4"></div>            
+                <div class="col-md-4">
+                    <button type="button" Class="btn btn-primary" name= "0" id="per-edi" onclick="registraPeriodo()">Aceptar</button>
+                    <button type="button" class="btn btn-danger">Calcelar</button>
+                </div>
+            </div>
+                
+               
+    </div>
+</body>
+</html>
+

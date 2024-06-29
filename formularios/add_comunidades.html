@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>Document</title>
+    <!--<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="http://localhost/titulacion/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://localhost/titulacion/css/gijgo.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+     <link rel="stylesheet" href="http://localhost/titulacion/script.js"> -->
+    <!-- <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> -->
+
+</head>
+<body>
+	<div class="row">
+		<div class="col">
+			GESTIÓN DE COMUNIDADES
+		</div>
+	</div>
+    <div class="container">
+        <form class="needs-validation" id="form-addComunidades">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-floating mb-1">
+                        <input type="text" class="form-control" name="nombre" id="com-nombre" placeholder="Nombre de la comunidad ..." required>
+                        <label for="titulolargo">Nombre de la comunidad:</label>
+                    </div>
+                    <div class="valid-feedback">
+                        Correcto
+                    </div>
+                    <div class="invalid-feedback">
+                        Debe colocar el nombre de la comunidad
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-floating">
+                        <select class="form-select" name="canton" id="com-parroquia" aria-label="Floating label select example">
+                          
+                        </select>
+                        <label for="floatingSelect">Parroquia:</label>
+                    </div>
+                </div> 
+            </div>
+            <div class="row">
+                <div class="col-md-4"></div> 
+                <div class="col-md-4"></div>            
+                <div class="col-md-4">
+                    <button type="button" Class="btn btn-primary" name= "0" id="com-edi" onclick="registraComunidad()">Aceptar</button>
+                    <button type="button" class="btn btn-danger">Calcelar</button>
+                </div>
+            </div>
+                
+               
+    </div>
+</body>
+</html>
+
