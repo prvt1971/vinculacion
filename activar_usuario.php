@@ -1,4 +1,4 @@
-<?PHP
+<?PHP // Solo para probar
 	include_once("include.php");
     include_once("libreria.php");
 	$mensaje= "Desactivado";
