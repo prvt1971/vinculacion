@@ -78,9 +78,9 @@
 				}
 				if ($file_guardado != ""){//para determinar si se ha seleccionado o no el logotipo
 					$nombreFoto = $nombreFoto.".".pathinfo($fileName, PATHINFO_EXTENSION);//construyo el nombre de la foto quwe voy a subir
-					$consulta = "INSERT INTO tit_usuarios(cedula,apellidos,nombres,email,sexo,usuario,clave,foto,confirmado) VALUES ('$ucedula','$uapellidos','$unombres','$ucorreo',$usexo,'$ucuenta',PASSWORD('$uclave'),'$nombreFoto',$confirmado);";
+					$consulta = "INSERT INTO tit_usuarios(cedula,apellidos,nombres,email,sexo,usuario,clave,foto,confirmado) VALUES ('$ucedula','$uapellidos','$unombres','$ucorreo',$usexo,'$ucuenta',SHA2('$uclave',256),'$nombreFoto',$confirmado);";
 				}else{
-					$consulta = "INSERT INTO tit_usuarios(cedula,apellidos,nombres,email,sexo,usuario,clave,confirmado) VALUES ('$ucedula','$uapellidos','$unombres','$ucorreo',$usexo,'$ucuenta',PASSWORD($uclave),$confirmado);";
+					$consulta = "INSERT INTO tit_usuarios(cedula,apellidos,nombres,email,sexo,usuario,clave,confirmado) VALUES ('$ucedula','$uapellidos','$unombres','$ucorreo',$usexo,'$ucuenta',PASSWORD('$uclave',256),$confirmado);";
 				}
 				//codigo para generar el codigo de confirmacion que se enviara al estudiante
 				if ($confirmado == 0){

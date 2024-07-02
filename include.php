@@ -12,4 +12,5 @@
     $HOST="bzwlcnn8eil2ducltnxb-mysql.services.clever-cloud.com"; //https://console.clever-cloud.com/
     $PATH = "H:/Mi unidad/www/titulacion";
     $DBNAME = "bzwlcnn8eil2ducltnxb"; //https://console.clever-cloud.com/
+    $W3DIRECTORY = "http://localhost/vinculacion";
 ?>
