@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: bzwlcnn8eil2ducltnxb-mysql.services.clever-cloud.com:3306
--- Tiempo de generación: 03-07-2024 a las 13:20:05
+-- Tiempo de generación: 04-07-2024 a las 21:41:59
 -- Versión del servidor: 8.0.15-5
--- Versión de PHP: 8.2.20
+-- Versión de PHP: 8.2.21
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -115,9 +115,7 @@ CREATE TABLE `tit_cantones` (
 --
 
 INSERT INTO `tit_cantones` (`id`, `nombre`, `provincia`) VALUES
-(4, 'JIPIJAPA', 4),
-(5, 'LOMAS DE SARGENTILLO', 5),
-(6, 'MONTECRISTI', 4);
+(5, 'LOMAS DE SARGENTILLO', 5);
 
 -- --------------------------------------------------------
 
@@ -212,7 +210,6 @@ CREATE TABLE `tit_facultades` (
 --
 
 INSERT INTO `tit_facultades` (`id`, `nombre`, `decano`, `logotipo`, `universidad`) VALUES
-(1, 'FACULTAD DE CIENCIAS NATURALES Y DE LA AGRICULTURA', 35, '', 1),
 (4, 'CIENCIAS ECONOMICAS', 40, '', 1);
 
 -- --------------------------------------------------------
@@ -267,15 +264,6 @@ CREATE TABLE `tit_parroquias` (
   `canton` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Volcado de datos para la tabla `tit_parroquias`
---
-
-INSERT INTO `tit_parroquias` (`id`, `nombre`, `canton`) VALUES
-(2, 'JULCUI', 4),
-(3, 'MEMBRILLAL', 4),
-(4, 'LA UNIÓN', 4);
-
 -- --------------------------------------------------------
 
 --
@@ -297,7 +285,7 @@ CREATE TABLE `tit_periodos` (
 --
 
 INSERT INTO `tit_periodos` (`id`, `universidad`, `titulo_largo`, `titulo_corto`, `inicia`, `termina`) VALUES
-(5, 1, 'Segundo período académico ordinario PII del 2023', 'PII2023', '2023-11-17', '2024-03-30');
+(8, 1, 'PRIMER PERIODO ACADEMICO AÑO 2024', 'PI2024', '2024-05-13', '2014-09-30');
 
 -- --------------------------------------------------------
 
@@ -318,8 +306,8 @@ CREATE TABLE `tit_provincias` (
 
 INSERT INTO `tit_provincias` (`id`, `pais`, `nombre`) VALUES
 (3, 1, 'ESMERALDAS'),
-(4, 1, 'MANABÍ'),
-(5, 1, 'GUAYAS');
+(5, 1, 'GUAYAS'),
+(6, 1, 'MANABÍ');
 
 -- --------------------------------------------------------
 
@@ -386,7 +374,7 @@ CREATE TABLE `tit_universidades` (
 --
 
 INSERT INTO `tit_universidades` (`id`, `nombre`, `email`, `urll`, `logotipo`, `rector`) VALUES
-(1, 'UNIVERSIDAD ESTATL DEL SUR DE MANABÍ', 'pvaldestamayo@gmail.com', 'http://unesum.edu.ec', 'eqhnkijyxsmcvuowbgzpfltdra_1.png', 36);
+(1, 'UNIVERSIDAD ESTATL DEL SUR DE MANABÍ', 'pvaldestamayo@gmail.com', 'http://unesum.edu.ec', 'eqhnkijyxsmcvuowbgzpfltdra_1.png', 34);
 
 -- --------------------------------------------------------
 
@@ -620,13 +608,13 @@ ALTER TABLE `tit_parroquias`
 -- AUTO_INCREMENT de la tabla `tit_periodos`
 --
 ALTER TABLE `tit_periodos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de la tabla `tit_provincias`
 --
 ALTER TABLE `tit_provincias`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `tit_proyectos`
