@@ -12,7 +12,7 @@
 		$userid = $datos['userid']; //Para identificar el Id del usuario logueado, que es un rector
         $conexionTemporal=Conecta($HOST,$USER,$PASSWORD,$DBNAME);
 		$Registros = $conexionTemporal->query("SELECT tit_universidades.id FROM tit_universidades WHERE tit_universidades.rector=$userid;");
-		$Registro = $Registro=mysqli_fetch_array($Registros);
+		$Registro = mysqli_fetch_array($Registros);
 		$puniversidad = $Registro['id'];
 		if ($accion == "Aceptar") { //Para saber si voy a insertar uno nuevo o a actualizar
 			$consulta = "INSERT INTO tit_periodos(titulo_largo,titulo_corto,inicia,termina,universidad) VALUES ('$pnombrelargo','$pnombrecorto','$pinicia','$ptermina',$puniversidad);";

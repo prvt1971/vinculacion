@@ -43,6 +43,7 @@ function registraPeriodo(tipo){
             plantilla += "<table class=\"table table-primary display table-hover table-bordered\">" //Tabla para mostrar el listado
             plantilla += "<thead><tr><td>Id</td><td>Nombre corto</td><td>Fecha de inicio</td><td>Fecha de culminación</td><td></td><td></td>"
             plantilla += "</tr></thead><tbody id=\"cuerpo\">"
+            console.log(respuesta)
             let resultados = JSON.parse(respuesta) 
             resultados.forEach(element => { //Recorrer todos los elementos del objeto
                 plantilla += `<tr atributo="${element.id}"> 
