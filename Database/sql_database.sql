@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 04-12-2023 a las 22:01:17
--- Versión del servidor: 10.4.28-MariaDB
--- Versión de PHP: 8.0.28
+-- Servidor: bzwlcnn8eil2ducltnxb-mysql.services.clever-cloud.com:3306
+-- Tiempo de generación: 03-07-2024 a las 13:20:05
+-- Versión del servidor: 8.0.15-5
+-- Versión de PHP: 8.2.20
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,10 +18,10 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `titulacion`
+-- Base de datos: `bzwlcnn8eil2ducltnxb`
 --
-CREATE DATABASE IF NOT EXISTS `titulacion` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `titulacion`;
+CREATE DATABASE IF NOT EXISTS `bzwlcnn8eil2ducltnxb` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `bzwlcnn8eil2ducltnxb`;
 
 -- --------------------------------------------------------
 
@@ -32,10 +32,10 @@ USE `titulacion`;
 DROP TABLE IF EXISTS `tit_acciones`;
 CREATE TABLE `tit_acciones` (
   `id` int(11) NOT NULL,
-  `nombre` varchar(50) NOT NULL,
+  `nombre` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
   `rol` int(11) NOT NULL,
   `funcion` int(11) NOT NULL,
-  `codigo` varchar(100) NOT NULL
+  `codigo` varchar(100) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -72,9 +72,9 @@ DROP TABLE IF EXISTS `tit_asignaciones`;
 CREATE TABLE `tit_asignaciones` (
   `id` int(11) NOT NULL,
   `usuario` int(11) DEFAULT NULL,
-  `parametro` varchar(20) NOT NULL,
+  `parametro` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
   `valor` int(11) NOT NULL,
-  `rol` int(11) NOT NULL DEFAULT 6
+  `rol` int(11) NOT NULL DEFAULT '6'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -95,7 +95,7 @@ INSERT INTO `tit_asignaciones` (`id`, `usuario`, `parametro`, `valor`, `rol`) VA
 (65, 50, '', 1, 6),
 (67, 53, '', 0, 6),
 (99, 38, '', 1, 4),
-(135, 102, '', 0, 6);
+(136, 103, '', 0, 6);
 
 -- --------------------------------------------------------
 
@@ -106,7 +106,7 @@ INSERT INTO `tit_asignaciones` (`id`, `usuario`, `parametro`, `valor`, `rol`) VA
 DROP TABLE IF EXISTS `tit_cantones`;
 CREATE TABLE `tit_cantones` (
   `id` int(11) NOT NULL,
-  `nombre` varchar(100) NOT NULL,
+  `nombre` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
   `provincia` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -128,10 +128,10 @@ INSERT INTO `tit_cantones` (`id`, `nombre`, `provincia`) VALUES
 DROP TABLE IF EXISTS `tit_carreras`;
 CREATE TABLE `tit_carreras` (
   `id` int(10) NOT NULL,
-  `nombre` varchar(45) NOT NULL DEFAULT '',
-  `facultad` int(10) NOT NULL DEFAULT 0,
+  `nombre` varchar(45) COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
+  `facultad` int(10) NOT NULL DEFAULT '0',
   `coordinador` int(10) DEFAULT NULL,
-  `logotipo` varchar(100) NOT NULL
+  `logotipo` varchar(100) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -154,10 +154,17 @@ DROP TABLE IF EXISTS `tit_codigostemporales`;
 CREATE TABLE `tit_codigostemporales` (
   `id` int(11) NOT NULL,
   `usuario` int(11) NOT NULL,
-  `codigo` varchar(8) NOT NULL,
+  `codigo` varchar(8) COLLATE utf8mb4_general_ci NOT NULL,
   `fecha` datetime NOT NULL,
   `hora` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `tit_codigostemporales`
+--
+
+INSERT INTO `tit_codigostemporales` (`id`, `usuario`, `codigo`, `fecha`, `hora`) VALUES
+(34, 53, 'TIT-9866', '2023-12-05 16:33:12', NULL);
 
 -- --------------------------------------------------------
 
@@ -168,7 +175,7 @@ CREATE TABLE `tit_codigostemporales` (
 DROP TABLE IF EXISTS `tit_comunidades`;
 CREATE TABLE `tit_comunidades` (
   `id` int(11) NOT NULL,
-  `nombre` varchar(100) NOT NULL,
+  `nombre` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
   `parroquia` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -194,10 +201,10 @@ CREATE TABLE `tit_coordinadores` (
 DROP TABLE IF EXISTS `tit_facultades`;
 CREATE TABLE `tit_facultades` (
   `id` int(10) NOT NULL,
-  `nombre` varchar(100) NOT NULL DEFAULT '',
-  `decano` int(10) NOT NULL DEFAULT 0,
-  `logotipo` varchar(70) NOT NULL,
-  `universidad` int(11) NOT NULL DEFAULT 0
+  `nombre` varchar(100) COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
+  `decano` int(10) NOT NULL DEFAULT '0',
+  `logotipo` varchar(70) COLLATE utf8mb4_general_ci NOT NULL,
+  `universidad` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -217,7 +224,7 @@ INSERT INTO `tit_facultades` (`id`, `nombre`, `decano`, `logotipo`, `universidad
 DROP TABLE IF EXISTS `tit_funciones`;
 CREATE TABLE `tit_funciones` (
   `id` int(10) UNSIGNED NOT NULL,
-  `nombre` varchar(45) NOT NULL DEFAULT ''
+  `nombre` varchar(45) COLLATE utf8mb4_general_ci NOT NULL DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -237,7 +244,7 @@ INSERT INTO `tit_funciones` (`id`, `nombre`) VALUES
 DROP TABLE IF EXISTS `tit_paises`;
 CREATE TABLE `tit_paises` (
   `id` int(11) NOT NULL,
-  `nombre` varchar(70) NOT NULL
+  `nombre` varchar(70) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -256,7 +263,7 @@ INSERT INTO `tit_paises` (`id`, `nombre`) VALUES
 DROP TABLE IF EXISTS `tit_parroquias`;
 CREATE TABLE `tit_parroquias` (
   `id` int(11) NOT NULL,
-  `nombre` varchar(100) NOT NULL,
+  `nombre` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
   `canton` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -279,8 +286,8 @@ DROP TABLE IF EXISTS `tit_periodos`;
 CREATE TABLE `tit_periodos` (
   `id` int(11) NOT NULL,
   `universidad` int(11) NOT NULL,
-  `titulo_largo` varchar(70) NOT NULL,
-  `titulo_corto` varchar(10) NOT NULL,
+  `titulo_largo` varchar(70) COLLATE utf8mb4_general_ci NOT NULL,
+  `titulo_corto` varchar(10) COLLATE utf8mb4_general_ci NOT NULL,
   `inicia` date NOT NULL,
   `termina` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -302,7 +309,7 @@ DROP TABLE IF EXISTS `tit_provincias`;
 CREATE TABLE `tit_provincias` (
   `id` int(11) NOT NULL,
   `pais` int(11) NOT NULL,
-  `nombre` varchar(100) NOT NULL
+  `nombre` varchar(100) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -324,7 +331,7 @@ DROP TABLE IF EXISTS `tit_proyectos`;
 CREATE TABLE `tit_proyectos` (
   `id` int(11) NOT NULL,
   `tipo` int(11) NOT NULL,
-  `titulo` varchar(200) NOT NULL,
+  `titulo` varchar(200) COLLATE utf8mb4_general_ci NOT NULL,
   `carrera` int(11) NOT NULL,
   `director` int(11) NOT NULL,
   `provincia` int(11) NOT NULL,
@@ -342,7 +349,7 @@ CREATE TABLE `tit_proyectos` (
 DROP TABLE IF EXISTS `tit_tipo_usuarios`;
 CREATE TABLE `tit_tipo_usuarios` (
   `id` int(10) UNSIGNED NOT NULL,
-  `nombre` varchar(45) NOT NULL DEFAULT ''
+  `nombre` varchar(45) COLLATE utf8mb4_general_ci NOT NULL DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -367,10 +374,10 @@ INSERT INTO `tit_tipo_usuarios` (`id`, `nombre`) VALUES
 DROP TABLE IF EXISTS `tit_universidades`;
 CREATE TABLE `tit_universidades` (
   `id` int(10) NOT NULL,
-  `nombre` varchar(45) NOT NULL DEFAULT '',
-  `email` varchar(45) NOT NULL DEFAULT '',
-  `urll` varchar(45) NOT NULL DEFAULT '',
-  `logotipo` text NOT NULL,
+  `nombre` varchar(45) COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
+  `email` varchar(45) COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
+  `urll` varchar(45) COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
+  `logotipo` text COLLATE utf8mb4_general_ci NOT NULL,
   `rector` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -390,16 +397,16 @@ INSERT INTO `tit_universidades` (`id`, `nombre`, `email`, `urll`, `logotipo`, `r
 DROP TABLE IF EXISTS `tit_usuarios`;
 CREATE TABLE `tit_usuarios` (
   `id` int(11) NOT NULL,
-  `cedula` varchar(11) NOT NULL,
-  `email` varchar(50) NOT NULL,
-  `nombres` varchar(45) NOT NULL DEFAULT '',
-  `apellidos` varchar(45) NOT NULL DEFAULT '',
-  `usuario` varchar(25) NOT NULL DEFAULT '',
-  `clave` varchar(100) NOT NULL DEFAULT '',
-  `foto` varchar(70) NOT NULL,
-  `sexo` tinyint(1) NOT NULL DEFAULT 1 COMMENT '1 hembras',
-  `carrera` int(11) NOT NULL DEFAULT 0,
-  `confirmado` tinyint(1) NOT NULL DEFAULT 0
+  `cedula` varchar(11) COLLATE utf8mb4_general_ci NOT NULL,
+  `email` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `nombres` varchar(45) COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
+  `apellidos` varchar(45) COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
+  `usuario` varchar(25) COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
+  `clave` varchar(100) COLLATE utf8mb4_general_ci NOT NULL DEFAULT '',
+  `foto` varchar(70) COLLATE utf8mb4_general_ci NOT NULL DEFAULT 'nobody.png',
+  `sexo` tinyint(1) NOT NULL DEFAULT '1' COMMENT '1 hembras',
+  `carrera` int(11) NOT NULL DEFAULT '0',
+  `confirmado` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -407,23 +414,23 @@ CREATE TABLE `tit_usuarios` (
 --
 
 INSERT INTO `tit_usuarios` (`id`, `cedula`, `email`, `nombres`, `apellidos`, `usuario`, `clave`, `foto`, `sexo`, `carrera`, `confirmado`) VALUES
-(1, '71061823246', '', 'Administrador', 'admin', 'admin', '*23AE809DDACAF96AF0FD78ED04B6A265E05AA257', 'female.png', 1, 0, 1),
-(34, '2', 'blanca.indacochea@unesum.edu.ec', 'INDACOCHEA GANCHOSO', 'BLANCA SOLEDAD', 'blanca', '*23AE809DDACAF96AF0FD78ED04B6A265E05AA257', 'ihdnpgomwqtyzlufvksrxbjaec.jpg', 1, 0, 1),
-(35, '3', 'jose.alcivar@unesum.edu.ec', 'ALCIVAR COBEÑA', 'JOSÉ LUIS', 'alcivar', '*23AE809DDACAF96AF0FD78ED04B6A265E05AA257', 'abiqfogewpusxnhtlrkdyvmcjz.jpg', 2, 0, 1),
-(36, '4', 'christian.canarte@unesum.edu.ec', 'CAÑARTE VELEZ ', 'CHRISTIAN ANDRES', 'christian', '*23AE809DDACAF96AF0FD78ED04B6A265E05AA257', 'tgocdjslimkbwxephzqvunfyra.jpg', 1, 0, 1),
-(37, '5', 'julio.jaramillos@unesum.edu.ec', 'JARAMILLO VELEZ', 'JULIO', 'julio', '*23AE809DDACAF96AF0FD78ED04B6A265E05AA257', 'licejavnksbomdfygzuwhxrqpt.jpg', 2, 0, 1),
-(38, '6', 'carlos.castro@unesum.edu.ec', 'CASTRO PIGUAVE', 'CARLOS ALBERTO', 'carlos', '*23AE809DDACAF96AF0FD78ED04B6A265E05AA257', 'iudacfzmtjrhoepnygbqvwskxl.jpg', 2, 0, 1),
-(39, '7', 'cesar.verdesoto@unesum.edu.ec', 'VERDESOTO', 'CESAR', 'cesar', '*23AE809DDACAF96AF0FD78ED04B6A265E05AA257', 'caxnsdpjkfyoeizqtvwglbuhmr.jpg', 2, 0, 1),
-(40, '8', 'carlos.zea@unesum.edu.ec', 'ZEA BARAHONA', 'CARLOS', 'carloszea', '*23AE809DDACAF96AF0FD78ED04B6A265E05AA257', 'ofalvebsukhcjxmzrqypwdigtn.jpg', 1, 0, 1),
-(41, '9', 'dewis.alvarez@unesum.edu.ec', 'ÁLVAREZ PINCAY', 'DEWIS EDWIN ', 'dewis', '*23AE809DDACAF96AF0FD78ED04B6A265E05AA257', 'palebvgrdxqcnjkfuzythiwmos.jpg', 2, 0, 1),
-(44, '10', 'washintong.narvaes@unesum.edu.ec', 'NARVAEZ CAMPANA', 'WASHINTONG VICENTE', 'washito', '*23AE809DDACAF96AF0FD78ED04B6A265E05AA257', '', 2, 0, 1),
-(45, '11', 'manuel.manobanda@unesum.edu.ec', 'MANOBANDA GUAMAN', 'MANUEL', 'manobanda', '*23AE809DDACAF96AF0FD78ED04B6A265E05AA257', '', 2, 0, 1),
-(46, '12', 'pvaldestamayo@gmail.com', 'Apellidos', 'Nombres', 'profesor1', '*23AE809DDACAF96AF0FD78ED04B6A265E05AA257', '', 2, 0, 1),
-(47, '13', 'tomas.fuentes@unesum.edu.ec', 'FUENTES FIGUEROA', 'TOMAS ROBERT', 'tomas', '*23AE809DDACAF96AF0FD78ED04B6A265E05AA257', '', 2, 0, 1),
-(49, '14', 'yandri.palma@ult.edu.ec', 'PALMA SORNOSA', 'YANDRY ALBERTO', 'yandri', '*23AE809DDACAF96AF0FD78ED04B6A265E05AA257', '', 2, 0, 1),
-(50, '15', 'karla.moran@unesum.edu.ec', 'MORAN NIETO', 'KARLA NANESSA', 'karla', '', 'oqunmtrzhbxvkdgafpsjieycwl.jpg', 1, 0, 1),
-(53, '72052014978', 'misle.72.04@gmail.com', 'HERNANDEZ AYRA', 'MISLEIDYS', 'misle', '*23AE809DDACAF96AF0FD78ED04B6A265E05AA257', 'ghnfrebkyljamvzcopdxistuwq.jpg', 1, 0, 0),
-(102, '20040110', 'pvaldestamayo@gmail.com', 'VALDES HERNANDEZ', 'PEDRO', 'pedri', '*23AE809DDACAF96AF0FD78ED04B6A265E05AA257', '', 2, 0, 1);
+(1, '71061823246', '', 'Administrador', 'admin', 'admin', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 'female.png', 1, 0, 1),
+(34, '2', 'blanca.indacochea@unesum.edu.ec', 'INDACOCHEA GANCHOSO', 'BLANCA SOLEDAD', 'blanca', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 'ihdnpgomwqtyzlufvksrxbjaec.jpg', 1, 0, 1),
+(35, '3', 'jose.alcivar@unesum.edu.ec', 'ALCIVAR COBEÑA', 'JOSÉ LUIS', 'alcivar', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 'abiqfogewpusxnhtlrkdyvmcjz.jpg', 2, 0, 1),
+(36, '4', 'christian.canarte@unesum.edu.ec', 'CAÑARTE VELEZ ', 'CHRISTIAN ANDRES', 'christian', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 'tgocdjslimkbwxephzqvunfyra.jpg', 1, 0, 1),
+(37, '5', 'julio.jaramillos@unesum.edu.ec', 'JARAMILLO VELEZ', 'JULIO', 'julio', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 'licejavnksbomdfygzuwhxrqpt.jpg', 2, 0, 1),
+(38, '6', 'carlos.castro@unesum.edu.ec', 'CASTRO PIGUAVE', 'CARLOS ALBERTO', 'carlos', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 'iudacfzmtjrhoepnygbqvwskxl.jpg', 2, 0, 1),
+(39, '7', 'cesar.verdesoto@unesum.edu.ec', 'VERDESOTO', 'CESAR', 'cesar', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 'caxnsdpjkfyoeizqtvwglbuhmr.jpg', 2, 0, 1),
+(40, '8', 'carlos.zea@unesum.edu.ec', 'ZEA BARAHONA', 'CARLOS', 'carloszea', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 'ofalvebsukhcjxmzrqypwdigtn.jpg', 1, 0, 1),
+(41, '9', 'dewis.alvarez@unesum.edu.ec', 'ÁLVAREZ PINCAY', 'DEWIS EDWIN ', 'dewis', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 'palebvgrdxqcnjkfuzythiwmos.jpg', 2, 0, 1),
+(44, '10', 'washintong.narvaes@unesum.edu.ec', 'NARVAEZ CAMPANA', 'WASHINTONG VICENTE', 'washito', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 'nobody.png', 2, 0, 1),
+(45, '11', 'manuel.manobanda@unesum.edu.ec', 'MANOBANDA GUAMAN', 'MANUEL', 'manobanda', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 'nobody.png', 2, 0, 1),
+(46, '12', 'pvaldestamayo@gmail.com', 'Apellidos', 'Nombres', 'profesor1', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 'nobody.png', 2, 0, 1),
+(47, '13', 'tomas.fuentes@unesum.edu.ec', 'FUENTES FIGUEROA', 'TOMAS ROBERT', 'tomas', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 'nobody.png', 2, 0, 1),
+(49, '14', 'yandri.palma@ult.edu.ec', 'PALMA SORNOSA', 'YANDRY ALBERTO', 'yandri', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 'nobody.png', 2, 0, 1),
+(50, '15', 'karla.moran@unesum.edu.ec', 'MORAN NIETO', 'KARLA NANESSA', 'karla', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 'oqunmtrzhbxvkdgafpsjieycwl.jpg', 1, 0, 1),
+(53, '72052014978', 'misle.72.04@gmail.com', 'HERNANDEZ AYRA', 'MISLEIDYS', 'misle', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 'nobody.png', 1, 0, 0),
+(103, '20040110', 'pvaldestamayo@gmail.com', 'VALDES HERNANDEZ', 'PEDRO', 'pedri', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 'nobody.png', 2, 0, 1);
 
 --
 -- Índices para tablas volcadas
@@ -553,7 +560,7 @@ ALTER TABLE `tit_acciones`
 -- AUTO_INCREMENT de la tabla `tit_asignaciones`
 --
 ALTER TABLE `tit_asignaciones`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=136;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=137;
 
 --
 -- AUTO_INCREMENT de la tabla `tit_cantones`
@@ -571,7 +578,7 @@ ALTER TABLE `tit_carreras`
 -- AUTO_INCREMENT de la tabla `tit_codigostemporales`
 --
 ALTER TABLE `tit_codigostemporales`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT de la tabla `tit_comunidades`
@@ -643,7 +650,7 @@ ALTER TABLE `tit_universidades`
 -- AUTO_INCREMENT de la tabla `tit_usuarios`
 --
 ALTER TABLE `tit_usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=103;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=104;
 
 --
 -- Restricciones para tablas volcadas
