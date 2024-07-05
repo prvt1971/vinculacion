@@ -23,38 +23,49 @@ $(function() {
     Refrescar(archivo,'areaprincipal')
     switch (archivo) {
       case "formularios/add_facultades.html":
+          $('#visualizador').html("");
           listaFacultades();
           colocaDecanos();
           break;
         case "formularios/add_universidades.html":
+          $('#visualizador').html("");
           listaUniversidades();
           colocaRectores();
           break;
         case "formularios/add_usuarios.html":
+          $('#visualizador').html("");
           listaUsuarios(document.getElementById('BarraPrincipal').getAttribute("rol"));//Paso como parametro el rol del usuario logueado
           break;
         case "formularios/add_carreras.html":
+          $('#visualizador').html("");
           listaCarreras();
           colocaCoordinadores()
           break;
         case "formularios/add_periodos.html":
+          $('#visualizador').html("");
             listaPeriodos();
             break;
         case "formularios/add_provincias.html":
+          $('#visualizador').html("");
             listaProvincias();
           break;
         case "formularios/add_cantones.html":
+          $('#visualizador').html("");
             listaCantones();
             colocaProvincias();
           break;
         case "formularios/add_parroquias.html":
+          $('#visualizador').html("");
             listaParroquias();
             colocaCantones();
           break;
         case "formularios/add_comunidades.html":
+          $('#visualizador').html("");
             listaComunidades();
             colocaParroquias();
           break;
+        case "formularios/compose_email.html":
+          $('#visualizador').html("");
     }
   })
   //Para capturar y realizar acción cuando se da Submit al formulario del login
