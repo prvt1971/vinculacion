@@ -23,49 +23,49 @@ $(function() {
     Refrescar(archivo,'areaprincipal')
     switch (archivo) {
       case "formularios/add_facultades.html":
-          $('#visualizador').html("");
+          $('#visualizador').html("");//Para limpiar el área de visualización
           listaFacultades();
           colocaDecanos();
           break;
         case "formularios/add_universidades.html":
-          $('#visualizador').html("");
+          $('#visualizador').html("");//Para limpiar el área de visualización
           listaUniversidades();
           colocaRectores();
           break;
         case "formularios/add_usuarios.html":
-          $('#visualizador').html("");
+          $('#visualizador').html("");//Para limpiar el área de visualización
           listaUsuarios(document.getElementById('BarraPrincipal').getAttribute("rol"));//Paso como parametro el rol del usuario logueado
           break;
         case "formularios/add_carreras.html":
-          $('#visualizador').html("");
+          $('#visualizador').html("");//Para limpiar el área de visualización
           listaCarreras();
           colocaCoordinadores()
           break;
         case "formularios/add_periodos.html":
-          $('#visualizador').html("");
+          $('#visualizador').html("");//Para limpiar el área de visualización
             listaPeriodos();
             break;
         case "formularios/add_provincias.html":
-          $('#visualizador').html("");
+          $('#visualizador').html("");//Para limpiar el área de visualización
             listaProvincias();
           break;
         case "formularios/add_cantones.html":
-          $('#visualizador').html("");
+          $('#visualizador').html("");//Para limpiar el área de visualización
             listaCantones();
             colocaProvincias();
           break;
         case "formularios/add_parroquias.html":
-          $('#visualizador').html("");
+          $('#visualizador').html("");//Para limpiar el área de visualización
             listaParroquias();
             colocaCantones();
           break;
         case "formularios/add_comunidades.html":
-          $('#visualizador').html("");
+          $('#visualizador').html("");//Para limpiar el área de visualización
             listaComunidades();
             colocaParroquias();
           break;
         case "formularios/compose_email.html":
-          $('#visualizador').html("");
+          $('#visualizador').html("");//Para limpiar el área de visualización
     }
   })
   //Para capturar y realizar acción cuando se da Submit al formulario del login

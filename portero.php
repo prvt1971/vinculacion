@@ -17,6 +17,23 @@
         $Datos = array();
    		if (mysqli_num_rows($Temp) != 0) {
 			$Result = mysqli_fetch_array($Temp);
+            //Para determinar si el usuario logueado puedes desplegar los menues
+            $identidad = $Result['userId'];
+            $rol = $Result['rolid'];
+            switch ($rol){
+                case 1:
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    break;
+                case 5:
+                    break;
+                case 6:
+                    break;
+            }
             $Datos[] = array(
                 'nombres' => $Result['nombre1'],
                 'apellidos' => $Result['apellidos1'],

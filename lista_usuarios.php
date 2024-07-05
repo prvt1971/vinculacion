@@ -7,13 +7,20 @@
     $usuario_logueado = $_GET['usuario'];
     $conexionTemporal=Conecta($HOST,$USER,$PASSWORD,$DBNAME);
     switch ($tipo){
-        case 1:
+        case 1: //Se trata de un administrador
             $parametro = "rector";
             break;
-        case 2:
+        case 2: // Se trata de un rector
             $parametro = "universidad";
+            $consulta = "SELECT * FROM tit_universidades WHERE tit_universidades.rector=$usuario_logueado;";
+            $Registros = $conexionTemporal->query($consulta);
+            if ($Registros->num_rows == 0){
+                $valor = -1;
+            } else {
+                $valor = 1;
+            }
             break;
-        case 3:
+        case 3: //Se trata de un decano
             $parametro = "facultad";
             //Para determinar la facultad asignada al decano logueado
             $consulta = "SELECT * FROM tit_facultades WHERE tit_facultades.decano=$usuario_logueado;";
@@ -21,7 +28,7 @@
 			$Registro = mysqli_fetch_array($Registros);
 			$valor =$Registro['id'];
             break;
-        case 4:
+        case 4: //Se trata de un coordinador
             $parametro = "carrera";
             //Para determinar la carrera asignada al coordinador logueado
             $consulta = "SELECT * FROM tit_carreras WHERE tit_carreras.coordinador=$usuario_logueado;";
@@ -29,11 +36,10 @@
 			$Registro = mysqli_fetch_array($Registros);
 			$valor =$Registro['id'];
             break;
-        //case 4:
+        case 5: //Se trata de un responsable de
           //  $parametro = "carrera";
-          //  break;
+          break;
     }
-    
     if ($valor==0) {
         //echo "Vlaor es cero";
         $consulta = "SELECT tit_usuarios.* FROM tit_usuarios INNER JOIN tit_asignaciones ON tit_usuarios.id=tit_asignaciones.usuario WHERE tit_asignaciones.rol=2";
