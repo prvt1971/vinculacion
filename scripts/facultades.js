@@ -97,14 +97,13 @@ function registraFacultad(tipo){
       type: 'GET',
       data: { dato: userid },
       success: function(respuesta){
-         //console.log(respuesta)
+        //console.log(respuesta)
           let plantilla = "<option value=0 selected></option>";
           let resultados = JSON.parse(respuesta);
           resultados.forEach(element => { //Recorrer todos los elementos del objeto
               plantilla += `"<option value=${element.id}>${element.apellidos} ${element.nombre}</option>"` 
           });
           $('#fac-decano').html(plantilla); //Aquí debo ver a que objeto le asigno la propiedad
-          
       }
     })
   }

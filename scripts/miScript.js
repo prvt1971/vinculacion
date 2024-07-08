@@ -75,9 +75,9 @@ $(function() {
      let clave = $('#clave').val();
      let dato = { usuario,clave }
      let plantilla = '';
-     let rolid = 0;$.post('portero.php',dato,function(respuesta){
+     let rolid = 0;
+     $.post('portero.php',dato,function(respuesta){
      let activado = 0; //Asumiendo que la cuenta no esta activada
-        //console.log(respuesta)
         let plantilla = '';
         resultados = JSON.parse(respuesta) 
         resultados.forEach(element => { //Recorrer todos los elementos del objeto

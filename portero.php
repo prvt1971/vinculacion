@@ -17,6 +17,7 @@
         $Datos = array();
    		if (mysqli_num_rows($Temp) != 0) {
 			$Result = mysqli_fetch_array($Temp);
+            $userid = $Result['userId'];
             //Para determinar si el usuario logueado puedes desplegar los menues
             $identidad = $Result['userId'];
             $rol = $Result['rolid'];
@@ -24,6 +25,13 @@
                 case 1:
                     break;
                 case 2:
+                    //Para comprobar si se trata de un rector sin universidad asignada
+                    $query1 = "SELECT * FROM tit_universidades INNER JOIN tit_usuarios ON tit_universidades.rector = tit_usuarios.id WHERE tit_usuarios.id = $userid";
+                    $Temp1 = $conexionTemporal->query($query1);
+                    if (mysqli_num_rows($Temp1) == 0) {
+                        //Qué hacer cuando se loguea un usuario con rol de rector pero sin universidad asignada
+                        $rol = 7; //Rol que no tiene definida ninguna acción dentro del sistema
+                    }   
                     break;
                 case 3:
                     break;
@@ -42,7 +50,7 @@
                 'id' => $Result['userId'],
                 'parametro' => $Result['parametro'],
                 'valor' => $Result['valor'],
-                'rolid' => $Result['rolid'],
+                'rolid' => $rol,
                 'rolname' => $Result['rolname'],
                 'confirmado' => $Result['confirmado'],
                 'sexo' => $Result['sexo']
