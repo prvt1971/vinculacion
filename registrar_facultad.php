@@ -36,9 +36,9 @@
 			}
 			if ($file_guardado != ""){//para determinar si se ha seleccionado o no el logotipo
 				$nombreFoto = $nombreFoto."_".$id_nuevo_registro.".".pathinfo($fileName, PATHINFO_EXTENSION);//construyo el nombre de la foto quwe voy a subir
-				$consulta = "INSERT INTO tit_facultades(nombre,decano,universidad,logotipo) VALUES ('$fnombre','$fdecano',$universidad,'$nombreFoto');";
+				$consulta = "INSERT INTO tit_facultades(nombre,decano,universidad,logotipo) VALUES ('$fnombre',$fdecano,$universidad,'$nombreFoto');";
 			}else{
-				$consulta = "INSERT INTO tit_facultades(nombre,decano,universidad) VALUES ('$fnombre','$fdecano',$universidad);";
+				$consulta = "INSERT INTO tit_facultades(nombre,decano,universidad) VALUES ('$fnombre',$fdecano,$universidad);";
 			}
 			if ($fdecano > 1){ //Para insertar el rector en la tabla de asiganaciones
 				$consulta1 = "UPDATE tit_asignaciones SET valor=$universidad WHERE usuario=$fdecano";
@@ -51,7 +51,7 @@
 			$Registros = $conexionTemporal->query($consulta);
 			$Registro = mysqli_fetch_array($Registros);
 			$logoViejo =$Registro['logotipo']; //Nombre del logotipo Viejo
-			$nombreFoto= $nombreFoto."_".$usuario.".".pathinfo($fileName, PATHINFO_EXTENSION);//construyo el nombre de la foto quwe voy a subir
+			$nombreFoto= $nombreFoto."_".$facultad.".".pathinfo($fileName, PATHINFO_EXTENSION);//construyo el nombre de la foto quwe voy a subir
 			if ($file_guardado != ""){//para determinar si se ha seleccionado o no el logotipo
 				unlink('imagenes/'.$logoViejo); //Borrar foto vieja
 				$consulta = "UPDATE tit_facultades SET nombre='$fnombre',decano=$fdecano,logotipo='$nombreFoto' WHERE tit_facultades.id=$facultad;";
@@ -66,7 +66,6 @@
 		$conexionTemporal->query($consulta); //Registrar  o actualizar la facultad
 		$conexionTemporal->query($consulta1); //Asignarle decano a la facultad en la tabla de asignaciones
 		if ($conexionTemporal) {
-			echo $consulta;
 			if ($file_guardado != "") {
 				echo "Voy a guardar";
 				subirArchivo($file_guardado,$PATH."/imagenes/",$nombreFoto);
