@@ -87,6 +87,8 @@
 					$codigo = generaCodigo();
 					$asunto = "Codigo de confirmacion";
 					$mensaje = "Su codigo de confirmacion es: " . $codigo;
+					$consulta3 = "INSERT INTO tit_codigostemporales(usuario,codigo,fecha) VALUES($id_nuevo_registro,'$codigo',CURRENT_TIME())";
+					$conexionTemporal->query($consulta3);//insertar el codigo temporal asignador al usuario q se acaba de registrar
 				}else{
 
 				}
@@ -104,8 +106,7 @@
 				//Para insertar el registro el la tabla de asignaciones
 				$consulta1 = "INSERT INTO tit_asignaciones(usuario,valor,rol) VALUES($id_nuevo_registro,$valor,$tipousuario)";
 				$conexionTemporal->query($consulta1);//insertar en la tabla secundaria correspondiente
-				$consulta3 = "INSERT INTO tit_codigostemporales(usuario,codigo,fecha) VALUES($id_nuevo_registro,'$codigo',CURRENT_TIME())";
-				$conexionTemporal->query($consulta3);//insertar el codigo temporal asignador al usuario q se acaba de registrar
+				
 				$mensaje= "registrado";
 				break;
 			case "Aplicar":
@@ -124,7 +125,7 @@
 				$logoViejo =$Registro['foto']; //Nombre del logotipo Viejo
 				$nombreFoto= $nombreFoto.".".pathinfo($fileName, PATHINFO_EXTENSION);//construyo el nombre de la foto quwe voy a subir
 				if ($file_guardado != ""){//para determinar si se ha seleccionado o no el logotipo
-					unlink('imagenes/fotos_usuarios/'.$logoViejo); //Borrar foto vieja
+					//unlink($PATH.'/imagenes/fotos_usuarios/'.$logoViejo); //Borrar foto vieja
 					$consulta = "UPDATE tit_usuarios SET cedula='$ucedula',nombres='$unombres',apellidos='$uapellidos',email='$ucorreo',sexo=$usexo,usuario='$ucuenta',clave=PASSWORD('$uclave'),foto='$nombreFoto' WHERE tit_usuarios.id=$usuario;";
 				}else{
 					$consulta = "UPDATE tit_usuarios SET cedula='$ucedula',nombres='$unombres',apellidos='$uapellidos',email='$ucorreo',sexo=$usexo,usuario='$ucuenta',clave=PASSWORD('$uclave') WHERE tit_usuarios.id=$usuario;";
@@ -149,7 +150,6 @@
 		}else{
 			//echo "Problemas al $mensaje el usuario";
 		}
-		echo $id_nuevo_registro;
 		mysqli_close($conexionTemporal);
     }
 ?>

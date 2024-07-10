@@ -20,6 +20,7 @@ function registraFacultad(tipo){
         contentType: false,
         processData: false,
         success: function(response) {
+            console.log(response)
             $('#form-addFac').trigger('reset');
             listaFacultades();
             limpiarFormularioFacultades()

@@ -5,7 +5,7 @@
         use PHPMailer\PHPMailer\SMTP;
         use PHPMailer\PHPMailer\Exception;
     function subirArchivo($ArchivoSubir,$Carpeta,$NombreNuevo){
-            if(copy($ArchivoSubir, $Carpeta."/".$NombreNuevo)){
+            if(copy($ArchivoSubir, $Carpeta.$NombreNuevo)){
                 echo "Archivo guardado con exito";
             }else{
                 echo "Archivo no se pudo guardarRRR ".$ArchivoSubir. " en ". $Carpeta."/".$NombreNuevo;
