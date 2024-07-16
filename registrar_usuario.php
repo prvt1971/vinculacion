@@ -32,6 +32,7 @@
 			switch ($tipousuario){//Para construir la consulta que voy a ejecutar para insertar datos de acuerdo al tipo de usuario
 			case 2: //Un rector
 				$parametro = "rector";
+				$confirmado = 1;
 				break;
 			case 3: //Un decano
 				$Registros = $conexionTemporal->query("SELECT tit_universidades.id FROM tit_universidades WHERE tit_universidades.rector=$userid;");
@@ -76,11 +77,12 @@
 					$conexionTemporal->query("TRUNCATE TABLE tit_usuarios");
 					$id_nuevo_registro = 1;
 				}
+				//construyo el nombre de la foto quwe voy a subir
+				$nombreFoto = $nombreFoto.".".pathinfo($fileName, PATHINFO_EXTENSION);
 				if ($file_guardado != ""){//para determinar si se ha seleccionado o no el logotipo
-					$nombreFoto = $nombreFoto.".".pathinfo($fileName, PATHINFO_EXTENSION);//construyo el nombre de la foto quwe voy a subir
 					$consulta = "INSERT INTO tit_usuarios(cedula,apellidos,nombres,email,sexo,usuario,clave,foto,confirmado) VALUES ('$ucedula','$uapellidos','$unombres','$ucorreo',$usexo,'$ucuenta',SHA2('$uclave',256),'$nombreFoto',$confirmado);";
 				}else{
-					$consulta = "INSERT INTO tit_usuarios(cedula,apellidos,nombres,email,sexo,usuario,clave,confirmado) VALUES ('$ucedula','$uapellidos','$unombres','$ucorreo',$usexo,'$ucuenta',PASSWORD('$uclave',256),$confirmado);";
+					$consulta = "INSERT INTO tit_usuarios(cedula,apellidos,nombres,email,sexo,usuario,clave,confirmado) VALUES ('$ucedula','$uapellidos','$unombres','$ucorreo',$usexo,'$ucuenta',SHA2('$uclave',256),$confirmado);";
 				}
 				//codigo para generar el codigo de confirmacion que se enviara al estudiante
 				if ($confirmado == 0){
@@ -125,23 +127,17 @@
 				$logoViejo =$Registro['foto']; //Nombre del logotipo Viejo
 				$nombreFoto= $nombreFoto.".".pathinfo($fileName, PATHINFO_EXTENSION);//construyo el nombre de la foto quwe voy a subir
 				if ($file_guardado != ""){//para determinar si se ha seleccionado o no el logotipo
-					//unlink($PATH.'/imagenes/fotos_usuarios/'.$logoViejo); //Borrar foto vieja
-					$consulta = "UPDATE tit_usuarios SET cedula='$ucedula',nombres='$unombres',apellidos='$uapellidos',email='$ucorreo',sexo=$usexo,usuario='$ucuenta',clave=PASSWORD('$uclave'),foto='$nombreFoto' WHERE tit_usuarios.id=$usuario;";
+					unlink($PATH.'/imagenes/fotos_usuarios/'.$logoViejo); //Borrar foto vieja
+					$consulta = "UPDATE tit_usuarios SET cedula='$ucedula',nombres='$unombres',apellidos='$uapellidos',email='$ucorreo',sexo=$usexo,usuario='$ucuenta',clave=SHA2('$uclave',256),foto='$nombreFoto' WHERE tit_usuarios.id=$usuario;";
 				}else{
-					$consulta = "UPDATE tit_usuarios SET cedula='$ucedula',nombres='$unombres',apellidos='$uapellidos',email='$ucorreo',sexo=$usexo,usuario='$ucuenta',clave=PASSWORD('$uclave') WHERE tit_usuarios.id=$usuario;";
+					$consulta = "UPDATE tit_usuarios SET cedula='$ucedula',nombres='$unombres',apellidos='$uapellidos',email='$ucorreo',sexo=$usexo,usuario='$ucuenta',clave=SHA2('$uclave',256) WHERE tit_usuarios.id=$usuario;";
 				}
 				$mensaje= "actualizado";
 				$conexionTemporal->query($consulta);
 				break;
 
 		}
-		//if ($accion == "Aceptar") { //Para saber si voy a insertar uno nuevo o a actualizar
-			
-		//}else{//para actualizar los datos de la universidad
-			
-		//}
-
-		 
+		//Si se ejecutó correctamente la consulta entonces subo el archivo de la fotografía	 
 		if ($conexionTemporal) {
 			if ($file_guardado != "") {
 				subirArchivo($file_guardado,$PATH."/imagenes/fotos_usuarios/",$nombreFoto);
