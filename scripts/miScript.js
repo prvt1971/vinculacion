@@ -218,7 +218,6 @@ function crearCuenta(){
 }
 //Para limpiar el formulario de los usuarios
 function resetearaddUsuarios(){
-  console.log("aaaaaaaaaaaaaaaaa")
   if (document.getElementById('BarraPrincipal').getAttribute("userId") == 0){
     location.reload()
   }else{

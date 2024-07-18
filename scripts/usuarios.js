@@ -115,7 +115,7 @@ function listaUsuarios(tipo){
         contentType: false,
         processData: false,
         success: function(response) {
-            console.log(response)
+            //console.log(response)
              $('#form-addUser').trigger('reset');
             if (seguir) {
               listaUsuarios(AA);
