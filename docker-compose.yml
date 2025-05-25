@@ -12,6 +12,7 @@ services:
       DB_HOST: mariadb
       DB_PASSWORD: password
       DB_USER: user
+      DB_NAME: titulacion
   webserver:
     image: nginx:1.25-alpine
     container_name: nginx-server
